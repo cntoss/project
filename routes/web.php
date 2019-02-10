@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group(['prefix' => 'admin'], function() {
+	
+	Route::resource('product','Admin\ProductController');
+	Route::resource('category','Admin\CategoryController');
+	Route::resource('brand','Admin\BrandController');
+	Route::resource('product_image','Admin\Product_imageController');
+	Route::resource('bookmark','Admin\BookmarkController');
+	Route::resource('buyer','Buyer\BuyerController');
 
+	});
+
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

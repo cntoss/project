@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Brand;
+use Session;
 
 class BrandController extends Controller
 {
@@ -14,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.brand.index',['brands'=>Brand::all()]);
     }
 
     /**
@@ -24,7 +26,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brand.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name'=>'required|max:255'
+        ]);
+        $brand=new Brand();
+        $brand->name=$request->name;
+        $brand->status=$request->status;
+        $brand->save();
+        Session::flash('msg','brand created successfully');
+        return redirect()->route('brand.index');
     }
 
     /**
@@ -57,7 +67,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand=dieor
     }
 
     /**

@@ -16,13 +16,13 @@ class CreateSellersTable extends Migration
         Schema::create('sellers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('logo');
-            $table->string('website');
+            $table->text('logo')->nullable();
+            $table->string('website')->nullable();
             $table->string('phone_no');
             $table->string('address');
-            $table->string('details');
-            $table->string('facebook_url');
-            $table->string('user_id');
+            $table->string('details')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

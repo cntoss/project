@@ -20,10 +20,10 @@ class CreateProductsTable extends Migration
             $table->double('price');
             $table->string('discount')->nullable();
             $table->text('description');
-            $table->text('featured_image');
-            $table->string('status');
-            $table->string('promotion');
-            $table->string('coupon');
+            $table->text('featured_image')->nullable();
+            $table->boolean('status');
+            $table->string('promotion')->nullable();
+            $table->string('coupon')->nullable();
             $table->timestamps();
         });
     }
