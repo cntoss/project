@@ -36,8 +36,11 @@
                 <td>{{$product->description}}</td>
                 <td>
                   <a class="btn btn-primary" href="{{route('product.edit',['id'=>$product->id])}}">Edit</a>
-                  <a class="btn btn-danger" href="{{route('product.destroy',['id'=>$product->id])}}">Delete</a>
-                </td>
+                   <form style="display: none;" id="delete-form-{{$product->id}}"  action="{{route('product.destroy',['product'=>$product->id])}}" method="post">
+                        @csrf
+                        {{ method_field('delete') }}                                    
+                    </form>
+                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{$product->id}}').submit();" href="{{route('product.destroy',['product'=>$product->id])}}" class="btn btn-danger">Delete</a>                </td>
               </tr>
             @endforeach
            @else

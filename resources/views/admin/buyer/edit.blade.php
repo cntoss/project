@@ -11,6 +11,7 @@
       <div class="panel-body">
         <form method="post" action="{{route('buyer.update',['id'=>auth()->user()->id])}}" enctype="multipart/form-data">
         {{@csrf_field()}}
+        @method('PATCH')
         <div class="form-group ">
           <label for="inputName">Name</label>
           <input type="text" class="form-control" id="inputEmail4"  name="name" value="{{$buyer->name}}">

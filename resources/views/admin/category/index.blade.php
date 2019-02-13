@@ -22,8 +22,11 @@
       <td>{{$category->status}}</td>
       <td>
     <a class="btn btn-success" href="{{route('category.edit',['id'=>$category->id])}}">edit</a>
-    <a class="btn btn-danger" href="{{route('category.destroy',['id'=>$category->id])}}">delete</a>
-   </td>
+    <form style="display: none;" id="delete-form-{{$category->id}}"  action="{{route('category.destroy',['category'=>$category->id])}}" method="post">
+        @csrf
+        {{ method_field('delete') }}                                    
+    </form>
+    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{$category->id}}').submit();" href="{{route('category.destroy',['category'=>$category->id])}}" class="btn btn-danger">Delete</a>   </td>
  </tr>
 
     @endforeach

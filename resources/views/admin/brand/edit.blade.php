@@ -7,8 +7,9 @@
          <h3>Edit Brand</h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="{{route('brand.update',['id'=>$brand->id])}}">
+        <form  action="{{route('brand.update',['id'=>$brand->id])}}" method="post" >
             {{@csrf_field()}}
+            @method('PATCH')
             <div class="form-group ">
               <label for="inputName">Name</label>
               <input type="text" class="form-control" id="inputEmail4" value="{{$brand->name}}" name="name">

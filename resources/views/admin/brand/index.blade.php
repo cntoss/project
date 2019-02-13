@@ -22,8 +22,11 @@
         <td>{{$brand->status}}</td>
         <td>
         <a class="btn btn-success" href="{{route('brand.edit',['id'=>$brand->id])}}">edit</a>
-        <a class="btn btn-danger" href="{{route('brand.destroy',['id'=>$brand->id])}}">delete</a>
-        </td>
+        <form style="display: none;" id="delete-form-{{$brand->id}}"  action="{{route('brand.destroy',['brand'=>$brand->id])}}" method="post">
+            @csrf
+            {{ method_field('delete') }}                                    
+        </form>
+        <a onclick="event.preventDefault(); document.getElementById('delete-form-{{$brand->id}}').submit();" href="{{route('brand.destroy',['category'=>$brand->id])}}" class="btn btn-danger">Delete</a>        </td>
       </tr>
     @endforeach
   </tbody>

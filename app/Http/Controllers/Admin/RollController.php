@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Brand;
+use App\Model\Roll;
 use Session;
 
-class BrandController extends Controller
+class RollController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('admin.brand.index',['brands'=>Brand::all()]);
+        $rolls= Roll::all();
+        return view('admin.rolls.index',compact('rolls'));
     }
 
     /**
@@ -26,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brand.create');
+        return view('admin.rolls.create');
     }
 
     /**
@@ -37,15 +38,14 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'name'=>'required|max:255'
+        $request->validate([
+            'name'=>'required'
         ]);
-        $brand=new Brand();
-        $brand->name=$request->name;
-        $brand->status=$request->status;
-        $brand->save();
-        Session::flash('msg','brand created successfully');
-        return redirect()->route('brand.index');
+        $roll=new Roll();
+        $roll->name=$request->name;
+        $roll->save();
+        Session::flash('msg',"Roll has been created Successfully");
+        return redirect()->route('rolls.index');
     }
 
     /**
@@ -67,8 +67,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand=Brand::find($id);
-        return view('admin.brand.edit',compact('brand'));
+        $roll = Roll::where('id',$id)->first();
+        return view('admin.rolls.edit',compact('roll'));
     }
 
     /**
@@ -80,16 +80,15 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-         request()->validate([
-            'name'=>'required|max:255',
-            'status'=>'required'
+        
+        $request->validate([
+            'name'=>'required'
         ]);
-        $brand=Brand::find($id);
-        $brand->name=$request->name;
-        $brand->status=$request->status;
-        $brand->save();
-        Session::flash('msg','brand updated successfully');
-        return redirect()->route('brand.index');
+        $roll=Roll::find($id);
+        $roll->name=$request->name;
+        $roll->save();
+        Session::flash('msg',"Roll has been updated Successfully");
+        return redirect()->route('rolls.index');
     }
 
     /**
@@ -100,9 +99,10 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand=Brand::where('id',$id)->first();
-        $brand->delete();
-        Session::flash('msg','brand destroyed successfully');
-        return redirect()->route('brand.index');
+        
+        $roll= Roll::where('id',$id)->first();
+        $roll->delete();
+        Session::flash('msg',"Roll has been deleted Successfully");
+        return redirect()->route('rolls.index');
     }
 }

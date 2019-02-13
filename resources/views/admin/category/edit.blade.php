@@ -6,8 +6,9 @@
          <h3>Edit Category</h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="{{route('categories.update',['id'=>$categories->id])}}">
+        <form method="post" action="{{route('category.update',['id'=>$categories->id])}}">
             {{@csrf_field()}}
+             @method('PATCH')
             <div class="form-group ">
               <label for="inputName">Name</label>
               <input type="text" class="form-control" id="inputEmail4" value="{{$categories->name}}" name="name">

@@ -60,6 +60,13 @@
                     <a href="{{route('buyer.index')}}">
                         <i class="fas fa-truck"></i>
                         <p>Buyer</p>
+                    </a>
+                </li>
+                 <li>
+                    <a href="{{route('rolls.index')}}">
+                        <i class="fas fa-truck"></i>
+                        <p>Rolls</p>
+                    </a>
                 </li>
             </ul>
       </div>

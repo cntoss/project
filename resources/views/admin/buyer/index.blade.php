@@ -31,14 +31,18 @@
                 <td>{{$buyer->phone_no}}</td>
                 <td>
                   <a class="btn btn-primary" href="{{route('buyer.edit',['id'=>$buyer->id])}}">Edit</a>
-                  <a class="btn btn-danger" href="{{route('buyer.destroy',['id'=>$buyer->id])}}">Delete</a>
-                  <a class="btn btn-success" href="{{route('buyer.show',['id'=>$buyer->id])}}">Show</a>
+
+                  <form style="display: none;" id="delete-form-{{$buyer->id}}"  action="{{route('buyer.destroy',['buyer'=>$buyer->id])}}" method="post">
+                        @csrf
+                        {{ method_field('delete') }}                                    
+                    </form>
+                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{$buyer->id}}').submit();" href="{{route('buyer.destroy',['buyer'=>$buyer->id])}}" class="btn btn-danger">Delete</a>     <a class="btn btn-success" href="{{route('buyer.show',['id'=>$buyer->id])}}">Show</a>
             @endforeach
            @else
-             <tr>
-             <td colspan="7">NO post available</span></td>
-             </tr>
-           @endif
+       <tr>
+       <td colspan="7">NO post available</span></td>
+       </tr>
+     @endif
       </tbody>
     </table>
   </div>

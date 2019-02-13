@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::resource('product_image','Admin\Product_imageController');
 	Route::resource('bookmark','Admin\BookmarkController');
 	Route::resource('buyer','Buyer\BuyerController');
+	Route::resource('rolls','Admin\RollController');
+
 
 	});
 
