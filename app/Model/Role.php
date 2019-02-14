@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Molel;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    //
+    protected $fillable=[
+    	'name' ];
 }

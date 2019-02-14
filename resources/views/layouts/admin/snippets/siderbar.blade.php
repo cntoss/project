@@ -63,9 +63,9 @@
                     </a>
                 </li>
                  <li>
-                    <a href="{{route('rolls.index')}}">
+                    <a href="{{route('roles.index')}}">
                         <i class="fas fa-truck"></i>
-                        <p>Rolls</p>
+                        <p>Roles</p>
                     </a>
                 </li>
             </ul>

@@ -7,7 +7,7 @@
          <h3>Edit Role</h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="{{route('rolls.update',['id'=>$roll->id])}}">
+        <form method="post" action="{{route('roles.update',['id'=>$roll->id])}}">
             {{@csrf_field()}}
              @method('PATCH')
          <div class="form-group">

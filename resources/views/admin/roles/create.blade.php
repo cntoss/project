@@ -8,7 +8,7 @@
         <h3 class="card-title">Add roll</h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="{{route('rolls.store')}}">
+        <form method="post" action="{{route('roles.store')}}">
           {{@csrf_field()}}
          
          <div class="form-group">

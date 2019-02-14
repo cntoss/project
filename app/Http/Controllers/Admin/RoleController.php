@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Roll;
 use Session;
 
-class RollController extends Controller
+class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $rolls= Roll::all();
-        return view('admin.rolls.index',compact('rolls'));
+        $roles= Role::all();
+        return view('admin.roles.index',compact('roles'));
     }
 
     /**
@@ -27,7 +22,7 @@ class RollController extends Controller
      */
     public function create()
     {
-        return view('admin.rolls.create');
+        return view('admin.roles.create');
     }
 
     /**
@@ -41,11 +36,11 @@ class RollController extends Controller
         $request->validate([
             'name'=>'required'
         ]);
-        $roll=new Roll();
-        $roll->name=$request->name;
-        $roll->save();
-        Session::flash('msg',"Roll has been created Successfully");
-        return redirect()->route('rolls.index');
+        $roles=new Role();
+        $roles->name=$request->name;
+        $roles->save();
+        Session::flash('msg',"roles has been created Successfully");
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -67,8 +62,8 @@ class RollController extends Controller
      */
     public function edit($id)
     {
-        $roll = Roll::where('id',$id)->first();
-        return view('admin.rolls.edit',compact('roll'));
+        $roles = Role::where('id',$id)->first();
+        return view('admin.roles.edit',compact('roles'));
     }
 
     /**
@@ -84,11 +79,11 @@ class RollController extends Controller
         $request->validate([
             'name'=>'required'
         ]);
-        $roll=Roll::find($id);
-        $roll->name=$request->name;
-        $roll->save();
-        Session::flash('msg',"Roll has been updated Successfully");
-        return redirect()->route('rolls.index');
+        $roles=Role::find($id);
+        $roles->name=$request->name;
+        $roles->save();
+        Session::flash('msg',"roles has been updated Successfully");
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -100,9 +95,10 @@ class RollController extends Controller
     public function destroy($id)
     {
         
-        $roll= Roll::where('id',$id)->first();
-        $roll->delete();
-        Session::flash('msg',"Roll has been deleted Successfully");
-        return redirect()->route('rolls.index');
+        $roles= Role::where('id',$id)->first();
+        $roles->delete();
+        Session::flash('msg',"roles has been deleted Successfully");
+        return redirect()->route('roles.index');
     }
 }
+
