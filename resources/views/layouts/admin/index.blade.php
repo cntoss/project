@@ -81,6 +81,7 @@
 
   <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
   <script src="{{asset('assets/js/demo.js')}}"></script>
-
+  <!-- ckeditor  -->
+  <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
 </html>

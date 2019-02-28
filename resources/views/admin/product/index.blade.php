@@ -24,7 +24,7 @@
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->price}}</td>
-                <td><img src="{{asset("images/$product->image")}}" alt="" height="40px"></td>
+                <td><img src="{{asset("images/$product->featured_image")}}" alt="" height="40px"></td>
                 <td>
                   @if($product->status==1)
                   <span class="level level-success">Active</span>

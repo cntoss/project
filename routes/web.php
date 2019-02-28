@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/blog', 'BlogController@index')->name('blog');
+
 
 Route::group(['prefix' => 'admin'], function() {
 	
@@ -29,3 +31,22 @@ Route::group(['prefix' => 'admin'], function() {
 	});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('image_upload', function() {
+	    $CKEditor = Input::get('CKEditor');
+	    $funcNum = Input::get('CKEditorFuncNum');
+	    $message = $url = '';
+	    if (Input::hasFile('upload')) {
+	        $file = Input::file('upload');
+	        if ($file->isValid()) {
+	            $filename = $file->getClientOriginalName();
+	            $file->move(public_path().'/images/', $filename);
+	            $url = URL::to('/images/'.$filename);
+	            
+	        } else {
+	            $message = 'An error occured while uploading the file.';
+	        }
+	    } else {
+	        $message = 'No file uploaded.';
+	    }
+	    return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
+	});
