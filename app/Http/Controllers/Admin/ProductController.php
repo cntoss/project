@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
+use App\Model\Category;
+use App\Model\Brand;
 use Session;
 use File;
 
@@ -27,8 +29,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.product.create');
+    {   
+        $categories= Category::where('status',1)->get();
+        $brands= Brand::where('status',1)->get();
+        return view('admin.product.create',compact('categories','brands'));
     }
 
     /**

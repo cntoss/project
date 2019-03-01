@@ -27,13 +27,27 @@
             <label for="inputName">Product Discount</label>
             <input type="number" class="form-control"  placeholder="Enter discount Code" name="discount">
           </div>
-          
-          </div>
+           <div class="form-group">
+                <label for="inputSelect">Category</label>            
+                 <select class="form-control" name="category_id">
+                    @foreach($categories as $category)
+                     <option value="{{$category->id}}" >{{$category->name}}</option>
+                    @endforeach
+                 </select>
+                </div>
+           <div class="form-group">
+                <label for="inputSelect">Brand</label>            
+                 <select class="form-control" name="category_id">
+                    @foreach($brands as $brand)
+                     <option value="{{$brand->id}}" >{{$brand->name}}</option>
+                    @endforeach
+                 </select>
+                </div>
           <div class="form-group">
           <label for="inputSelect">Status</label>
            <select class="form-control" name="status">
-               <option value="1">Active</option>
-               <option value="0">Inactive</option>
+               <option value="1">In Stock</option>
+               <option value="0">Out Of Stock</option>
            </select>
           </div>  
            <div class="form-group ">
@@ -59,6 +73,8 @@
 
 </form>
 @endsection
-<script type="text/javascript">
-CKEDITOR.replace('description');
-</script>
+@section('js')
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
+@append

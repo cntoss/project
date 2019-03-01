@@ -6,16 +6,16 @@
          <h3>Edit Category</h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="{{route('category.update',['id'=>$categories->id])}}">
+        <form method="post" action="{{route('category.update',['id'=>$category->id])}}">
             {{@csrf_field()}}
              @method('PATCH')
             <div class="form-group ">
               <label for="inputName">Name</label>
-              <input type="text" class="form-control" id="inputEmail4" value="{{$categories->name}}" name="name">
+              <input type="text" class="form-control" id="inputEmail4" value="{{$category->name}}" name="name">
             </div>
             <div class="form-group">
-              <label>Description</label>
-              <textarea class="form-control" name="description">{{$categories->description}}</textarea>
+              <label for="article-ckeditor">Description</label>
+              <textarea class="form-control" id="article-ckeditor" name="description">{{$category->description}}</textarea>
             </div>             
             <div class="form-group">
             <label for="inputSelect">Status</label>
@@ -31,3 +31,8 @@
       </div>
   </div>
 @endsection 
+@section('js')
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
+@append

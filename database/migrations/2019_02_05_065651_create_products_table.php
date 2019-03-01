@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->text('featured_image')->nullable();
             $table->boolean('status');
+            $table->text('brand');
+            $table->text('category');
             $table->string('promotion')->nullable();
             $table->string('coupon')->nullable();
             $table->timestamps();

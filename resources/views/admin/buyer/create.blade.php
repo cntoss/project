@@ -39,3 +39,8 @@
 </div>
 </div>
 @endsection
+@section('js')
+    <script>
+        CKEDITOR.replace( 'details' );
+    </script>
+@append

@@ -29,13 +29,21 @@
             <label for="inputName">Product Discount</label>
             <input type="number" class="form-control"  value="{{$product->discount}}" name="discount">
           </div>
+          <div class="form-group ">
+            <label for="inputName">Brand</label>
+            <input type="number" class="form-control"  value="{{$product->discount}}" name="discount">
+          </div>
+          <div class="form-group ">
+            <label for="inputName">Product Discount</label>
+            <input type="number" class="form-control"  value="{{$product->discount}}" name="discount">
+          </div>
           
           </div>
           <div class="form-group">
           <label for="inputSelect">Status</label>
            <select class="form-control" name="status">
-               <option value="1">Active</option>
-               <option value="0">Inactive</option>
+               <option value="1">In Stock</option>
+               <option value="0">Out Of Stock</option>
            </select>
           </div>  
            <div class="form-group ">
@@ -58,9 +66,10 @@
       </div>
    </div>
 </div>
-
 </form>
 @endsection
-<script type="text/javascript">
-CKEDITOR.replace('description');
-</script>
+@section('js')
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
+@append
