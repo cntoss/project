@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('layouts.blog.index');
+        $products= Product::all();
+        return view('layouts.blog.index',compact('products'));
     }
 
     /**

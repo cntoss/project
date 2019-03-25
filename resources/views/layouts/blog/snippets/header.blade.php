@@ -296,13 +296,13 @@
                                             </li>
                                             <li><a href="shop.html">Shop</a></li>
                                             <li><a href="{{route('home')}}">Dashboard</a></li>
-                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="{{route('about')}}">About Us</a></li>
                                             <li><a href="contact-us.html">Contact</a></li>
                                             <li><a href="#">Features <i class="fa fa-angle-down"></i></a>
                                                 <ul class="megamenu-3-column">
                                                     <li><a href="#">Pages</a>
                                                         <ul>
-                                                            <li><a href="about-us.html">About Us</a></li>
+                                                            <li><a href="{{route('about')}}">About Us</a></li>
                                                             <li><a href="contact-us.html">Contact Us</a></li>
                                                             <li><a href="service.html">Services</a></li>
                                                             <li><a href="portfolio.html">Portfolio</a></li>

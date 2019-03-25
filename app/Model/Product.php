@@ -19,10 +19,10 @@ class Product extends Model
     protected $fillable=[
     	'name','slug','description','image','featured_price','discount' ];
 
-	public function category() {
-		return $this->belongsTo(Category::class);
+	public function categoryn() {
+		return $this->belongsTo(Category::class,'category','id');
 	}
-    public function brand(){
-        return $this->hasMany(Product::class);
+    public function brandn(){
+        return $this->belongsTo(Brand::class,'brand','id');
     }
 }

@@ -52,6 +52,8 @@ class ProductController extends Controller
             'featured_image'=>'image|mimes:jpg,png,jpeg,gif|max:2048',
             'coupon'=>'required',
             'promotion'=>'required',
+            'brand'=>'required',
+            'category'=>'required',
             'status'=>'required'
         ]);
 
@@ -62,7 +64,9 @@ class ProductController extends Controller
         $product->discount=$request->discount;
         $product->coupon=$request->coupon;
         $product->promotion=$request->promotion;     
-        $product->status=$request->status;
+        $product->status=$request->status;  
+        $product->brand=$request->brand;
+        $product->category=$request->category;
         if($request->hasFile('image')){
             $image=$request->file('image');
             $new_name=rand().'.'.$image->getClientOriginalExtension();
@@ -82,7 +86,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $product= Product::where('id',$id)->first();
+        return view('admin.product.show',compact('product'));
     }
 
     /**

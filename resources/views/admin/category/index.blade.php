@@ -1,9 +1,10 @@
 @extends('layouts.admin.index')
 @section('content')
-
 @include('layouts.admin.snippets.session_message')
-
 <div class="content">
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-body">
 <span class="pull-left clickable panel-toggle"><a class="btn btn-success" href="{{route('category.create')}}">create new</a></span>
 <table class="table table-bordered">
   <thead>
@@ -33,4 +34,8 @@
   </tbody>
 </table>
 </div>
+</div>
+</div>
+</div>
+
   @endsection

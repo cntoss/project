@@ -23,10 +23,10 @@
     <body>
         <div class="wrapper home-one">
             <!-- HEADER AREA START -->
-            @include('layouts.blog.snippets.header')
+            @include('layouts.blog.snippets.headertop')
             <!-- HRADER AREA END -->
             <!-- Best sellers -->
-            @yield('content')
+            @yield('content1')
             <!-- Best sellers end -->
             <!-- footer start -->
             @include('layouts.blog.snippets.footer')
